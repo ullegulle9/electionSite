@@ -1,0 +1,22 @@
+extends head
+
+block resultCont
+	a(href="/report" class="linkBtn") Rapportera in resultat
+	div(class='mainContent')
+		h1 Röstresultat Göteborgs stift
+		br
+		h3 Aktuell ställning
+		h5 Vasakyrkan
+		table#Vasa
+		h5 Mastuggskyrkan
+		table#Masthugg
+		h5 Gårdstenskyrkan
+		table#Gardsten
+		h5 Kortedala kyrka
+		table#Kortedala
+		h5 Totalt
+		table#totalStats
+		h5#totalVotes
+		h3 Uppdatering i realtid
+		table#voteList
+		script(src='results.js')

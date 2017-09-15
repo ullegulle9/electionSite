@@ -1,0 +1,36 @@
+extends head
+
+block reportCont
+	a(href="/" class="linkBtn") Tillbaka till resultatsidan
+	div(class='mainContent')
+		h1 Inrapporteringssida 
+		br
+		h3 Röstning Göteborgs stift
+		br
+		form
+			select#voteLocation
+				option(value="Vasakyrkan") Vasakyrkan
+				option(value="Masthuggskyrkan") Masthuggskyrkan
+				option(value="Gårdstenskyrkan") Gårdstenskyrkan
+				option(value="Kortedala kyrka") Kortedala kyrka
+			input#politicalParty(type="text", placeholder="Parti")
+			input#amountOfVotes(type="text", placeholder="Antal röster")
+			button#sendBtn Skicka in
+			
+
+		script.
+			const sendBtn = document.getElementById("sendBtn");
+			const district = document.getElementById("voteLocation");
+			const politicalParty = document.getElementById("politicalParty");
+			const amountOfVotes = document.getElementById("amountOfVotes");
+
+			sendBtn.addEventListener("click", function () {
+				//console.log('ABRAKADABRA');
+
+				socket.emit("Votes", {
+					district: district.value,
+					amountOfVotes: amountOfVotes.value,
+					politicalParty: politicalParty.value
+				});
+
+			});

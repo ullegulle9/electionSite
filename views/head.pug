@@ -1,0 +1,15 @@
+doctype html
+html
+	head
+		meta(charset="UTF-8")
+		title Report results
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		script(src='/socket.io/socket.io.js')
+		script(src='https://code.jquery.com/jquery-1.11.1.js')
+		script(src='report.js')
+		script.
+			var socket = io();
+			
+		body
+			block reportCont
+			block resultCont
